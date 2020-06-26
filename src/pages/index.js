@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import styled from 'styled-components';
 
 import Layout from '../components/layout';
@@ -16,15 +16,17 @@ const StyledLink = styled(Link)`
   text-decoration: none;
 `;
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title='Home' />
-    <Wrapper>
-      <StyledLink to={'/about'}>Go to about page</StyledLink>
-      <StyledLink to={'/app/person/2'}>Go to person page</StyledLink>
-      <StyledLink to={'/page-2'}>Go to 2nd page</StyledLink>
-    </Wrapper>
-  </Layout>
-);
+const IndexPage = () => {
+  return (
+    <Layout>
+      <SEO title='Home' />
+      <Wrapper>
+        <StyledLink to={'/about'}>Go to about page</StyledLink>
+        <StyledLink to={'/app/person/2'}>Go to person page</StyledLink>
+        <StyledLink to={'/page-2'}>Go to 2nd page</StyledLink>
+      </Wrapper>
+    </Layout>
+  );
+};
 
 export default IndexPage;

@@ -15,7 +15,17 @@ const StyledWrapper = styled.div<WrapperProps>`
   padding: 2rem;
 `;
 
-const About: React.FC<PageProps> = ({ data }) => {
+type QueryProps = {
+  site: {
+    siteMetadata: {
+      author: string;
+      description: string;
+      title: string;
+    };
+  };
+};
+
+const About: React.FC<PageProps<QueryProps>> = ({ data }) => {
   console.log(data);
   return (
     <StyledWrapper isDark={true}>
@@ -27,10 +37,14 @@ const About: React.FC<PageProps> = ({ data }) => {
 
 export default About;
 
-export const query = graphql`
-  {
+export const pageInfo = graphql`
+  query {
     site {
-      port
+      siteMetadata {
+        author
+        description
+        title
+      }
     }
   }
 `;
