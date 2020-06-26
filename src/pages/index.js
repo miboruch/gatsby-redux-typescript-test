@@ -1,22 +1,30 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from 'react';
+import { Link } from 'gatsby';
+import styled from 'styled-components';
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+import Layout from '../components/layout';
+import SEO from '../components/seo';
+
+const Wrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+`;
+
+const StyledLink = styled(Link)`
+  color: #2d2d2d;
+  text-decoration: none;
+`;
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link> <br />
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
+    <SEO title='Home' />
+    <Wrapper>
+      <StyledLink to={'/about'}>Go to about page</StyledLink>
+      <StyledLink to={'/app/person/2'}>Go to person page</StyledLink>
+      <StyledLink to={'/page-2'}>Go to 2nd page</StyledLink>
+    </Wrapper>
   </Layout>
-)
+);
 
-export default IndexPage
+export default IndexPage;
