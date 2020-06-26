@@ -15,13 +15,8 @@ const StyledWrapper = styled.div<WrapperProps>`
   padding: 2rem;
 `;
 
-type QueryTypes = {
-  site: {
-    port: string;
-  };
-};
-
-const About: React.FC<PageProps<QueryTypes>> = () => {
+const About: React.FC<PageProps> = ({ data }) => {
+  console.log(data);
   return (
     <StyledWrapper isDark={true}>
       <h1>HELLO ABOUT</h1>
